@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CalendarIcon, MapPinIcon, ArrowRightIcon, ChevronDownIcon } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const WeddingInvitation = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -29,18 +37,44 @@ const WeddingInvitation = () => {
     contentElement.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const carouselImages = [
+    '/wedding-image.jpg',
+    '/placeholder.svg',
+    '/placeholder.svg',
+    '/placeholder.svg',
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-pink-100 to-purple-100">
       <div className="relative h-screen overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url('/wedding-image.jpg')`,
-            transform: `translateY(${scrollY * 0.5}px)`,
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
           }}
-        />
+          plugins={[
+            Autoplay({
+              delay: 2000,
+            }),
+          ]}
+          className="w-full h-full"
+        >
+          <CarouselContent>
+            {carouselImages.map((src, index) => (
+              <CarouselItem key={index} className="h-full">
+                <div 
+                  className="w-full h-full bg-cover bg-center"
+                  style={{
+                    backgroundImage: `url('${src}')`,
+                    transform: `translateY(${scrollY * 0.5}px)`,
+                  }}
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
         <div className="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex flex-col items-center justify-center">
-          <h1 className="text-white text-6xl md:text-9xl font-bold text-center px-4 md:px-0 opacity-90 leading-tight">
+          <h1 className="text-white text-6xl md:text-9xl font-bold text-center px-8 md:px-0 opacity-90 leading-tight">
             Doredla's<br />Invitation
           </h1>
           <button 
