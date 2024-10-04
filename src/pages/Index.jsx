@@ -13,15 +13,15 @@ const WeddingInvitation = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-pink-100 to-purple-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
-        <div className="relative mb-8">
+        <div className="relative mb-8 h-96">
           <img
             src="/wedding-image.jpg"
             alt="Aditya and Pushkala"
-            className="w-full h-auto rounded-lg shadow-lg"
+            className="w-full h-full object-cover rounded-lg shadow-lg"
           />
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center rounded-lg">
-            <h1 className="text-white text-4xl font-bold text-center">
-              Doredla's Wedding Invitation
+          <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center rounded-lg">
+            <h1 className="text-white text-4xl font-bold text-center px-4">
+              Doredla's Invitation
             </h1>
           </div>
         </div>
