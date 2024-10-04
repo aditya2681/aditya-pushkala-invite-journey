@@ -74,8 +74,8 @@ const WeddingInvitation = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="absolute left-4 top-1/2 transform -translate-y-1/2" />
-          <CarouselNext className="absolute right-4 top-1/2 transform -translate-y-1/2" />
+          <CarouselPrevious className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white" />
+          <CarouselNext className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white" />
           <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
             {carouselImages.map((_, index) => (
               <div
