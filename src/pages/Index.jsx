@@ -5,6 +5,7 @@ import { CalendarIcon, MapPinIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRigh
 const WeddingInvitation = () => {
   const [scrollY, setScrollY] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [direction, setDirection] = useState(1); // 1 for right, -1 for left
   const images = ['/image1.jpg', '/image2.jpg', '/image3.jpg', '/image4.jpg'];
 
   useEffect(() => {
@@ -21,6 +22,7 @@ const WeddingInvitation = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
+      setDirection(1);
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 2000);
 
@@ -40,24 +42,33 @@ const WeddingInvitation = () => {
   };
 
   const nextImage = () => {
+    setDirection(1);
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
   const prevImage = () => {
+    setDirection(-1);
     setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-pink-100 to-purple-100">
       <div className="relative h-screen overflow-hidden">
-        <div 
-          className="w-full h-full bg-cover bg-center transition-opacity duration-500"
-          style={{
-            backgroundImage: `url(${images[currentImageIndex]})`,
-            transform: `translateY(${scrollY * 0.5}px)`,
-          }}
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center">
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className={`absolute w-full h-full transition-transform duration-500 ease-in-out ${
+              index === currentImageIndex ? 'z-10' : 'z-0'
+            }`}
+            style={{
+              backgroundImage: `url(${image})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              transform: `translateX(${(index - currentImageIndex) * 100 * direction}%)`,
+            }}
+          />
+        ))}
+        <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center z-20">
           <h1 className="text-white text-6xl md:text-9xl font-bold text-center px-8 md:px-0 opacity-90 leading-tight">
             Doredla's<br />Invitation
           </h1>
