@@ -6,7 +6,11 @@ const WeddingInvitation = () => {
   const [scrollY, setScrollY] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [direction, setDirection] = useState(1); // 1 for right, -1 for left
-  const images = ['/image1.jpg', '/image2.jpg', '/image3.jpg', '/image4.jpg'];
+  const images = ['/image1.jpg', '/image2.jpg', '/image3.jpg', '/image4.jpg','/image5.jpg','/image6.jpg'
+    ,'/image7.jpg'
+    ,'/image8.jpg'
+    ,'/image9.jpg'
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,8 +76,8 @@ const WeddingInvitation = () => {
           <h1 className="text-gray-300 text-6xl md:text-9xl font-bold text-center px-8 md:px-0 opacity-70 leading-tight">
             Doredla's<br />Invitation
           </h1>
-          <button 
-            onClick={scrollToContent} 
+          <button
+            onClick={scrollToContent}
             className="absolute bottom-8 animate-bounce"
             aria-label="Scroll to content"
           >
