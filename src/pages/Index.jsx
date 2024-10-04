@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CalendarIcon, MapPinIcon, ArrowRightIcon } from "lucide-react";
+import { CalendarIcon, MapPinIcon, ArrowRightIcon, ChevronDownIcon } from "lucide-react";
 
 const WeddingInvitation = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -24,9 +24,9 @@ const WeddingInvitation = () => {
     { date: "October 14th, Evening 🌆", name: "Reception 👫🏻", venue: "Akkineni Convention, Vuyyuru", mapLink: "https://maps.app.goo.gl/NxjeXahE2YbXB3bW9", videoId: "dQw4w9WgXcQ" },
   ];
 
-  const scrollToVideo = (videoId) => {
-    const videoElement = document.getElementById(videoId);
-    videoElement.scrollIntoView({ behavior: 'smooth' });
+  const scrollToContent = () => {
+    const contentElement = document.getElementById('content');
+    contentElement.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -39,13 +39,20 @@ const WeddingInvitation = () => {
             transform: `translateY(${scrollY * 0.5}px)`,
           }}
         />
-        <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center">
-          <h1 className="text-white text-4xl font-bold text-center px-4">
+        <div className="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex flex-col items-center justify-center">
+          <h1 className="text-white text-6xl md:text-8xl font-bold text-center px-4 opacity-90">
             Doredla's Invitation
           </h1>
+          <button 
+            onClick={scrollToContent} 
+            className="absolute bottom-8 animate-bounce"
+            aria-label="Scroll to content"
+          >
+            <ChevronDownIcon className="h-12 w-12 text-white" />
+          </button>
         </div>
       </div>
-      <div className="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <div id="content" className="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row gap-8">
           <Card className="bg-white shadow-xl rounded-lg overflow-hidden mb-8 flex-1">
             <CardHeader className="bg-pink-500 text-white text-center py-6">
@@ -81,12 +88,12 @@ const WeddingInvitation = () => {
                       </a>
                     )}
                     {event.videoId && (
-                      <button
-                        onClick={() => scrollToVideo(event.videoId)}
+                      <a
+                        href={`#${event.videoId}`}
                         className="flex items-center text-pink-500 hover:text-pink-600 mt-2"
                       >
                         Watch Live <ArrowRightIcon className="ml-1 h-4 w-4" />
-                      </button>
+                      </a>
                     )}
                   </div>
                 ))}
