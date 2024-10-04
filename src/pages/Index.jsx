@@ -39,10 +39,10 @@ const WeddingInvitation = () => {
   };
 
   const carouselImages = [
-    '/wedding-image.jpg',
-    '/placeholder.svg',
-    '/placeholder.svg',
-    '/placeholder.svg',
+    '/image1.jpg',
+    '/image2.jpg',
+    '/image3.jpg',
+    '/image4.jpg'
   ];
 
   return (
