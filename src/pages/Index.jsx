@@ -38,7 +38,7 @@ const WeddingInvitation = () => {
             <h2 className="text-2xl font-semibold text-center mb-4">Schedule of Events</h2>
             <div className="space-y-4">
               {events.map((event, index) => (
-                <div key={index} className="border-b border-gray-200 pb-4 last:border-b-0">
+                <div key={index} className="border-b border-gray-200 pb-4 last:border-b-0 flex flex-col items-center text-center">
                   <div className="flex items-center mb-2">
                     <CalendarIcon className="mr-2 h-5 w-5 text-pink-500" />
                     <span className="font-semibold">{event.date}</span>
