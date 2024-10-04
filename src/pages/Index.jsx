@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CalendarIcon, MapPinIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
+import YouTubeShortPlayer from '../components/ui/YouTubeShortPlayer';
 
 const WeddingInvitation = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -73,7 +74,7 @@ const WeddingInvitation = () => {
           />
         ))}
         <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center z-20">
-          <h1 className="text-gray-300 text-6xl md:text-9xl font-bold text-center px-8 md:px-0 opacity-70 leading-tight">
+          <h1 className="text-gray-300 text-6xl script-font md:text-9xl font-bold text-center px-8 md:px-0 opacity-70 leading-tight">
             Doredla's<br />Invitation
           </h1>
           <div>
@@ -87,7 +88,7 @@ const WeddingInvitation = () => {
 
           <button
             onClick={scrollToContent}
-            className="absolute bottom-8 animate-bounce"
+            className="absolute bottom-8 animate-bounce mb-8"
             aria-label="Scroll to content"
           >
             <ChevronDownIcon className="h-12 w-12 text-white" />
@@ -149,19 +150,13 @@ const WeddingInvitation = () => {
             </CardContent>
           </Card>
           {/* update the youtube link for wedding */}
-          <div className="flex-1 space-y-8 hidden">
+          <div className="flex-1 space-y-8 ">
             <div className="aspect-w-16 aspect-h-9">
-              <h2 className="text-2xl font-semibold text-center mb-4">Wedding Ceremony Live</h2>
-              <iframe
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-[400px] rounded-lg shadow-lg"
-              ></iframe>
+              <h2 className="text-2xl font-semibold text-center mb-4">Wedding Invititation</h2>
+              <YouTubeShortPlayer videoId="FLthC7hB9r8" />
             </div>
-            <div className="aspect-w-16 aspect-h-9">
-              <h2 className="text-2xl font-semibold text-center mb-4">Reception Live</h2>
+            <div className="aspect-w-16 aspect-h-9 hidden">
+              <h2 className="text-2xl font-semibold text-center mb-4">Wedding Live</h2>
               <iframe
                 src="https://www.youtube.com/embed/dQw4w9WgXcQ"
                 frameBorder="0"
