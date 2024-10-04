@@ -49,7 +49,7 @@ const WeddingInvitation = () => {
             transform: `translateY(${scrollY * 0.5}px)`,
           }}
         />
-        <div className="absolute inset-0 bg-black bg-opacity-40 backdrop-blur-sm flex flex-col items-center justify-center">
+        <div className="absolute inset-0 bg-black bg-opacity-40 backdrop-blur-[2px] flex flex-col items-center justify-center">
           <h1 className="text-white text-6xl md:text-9xl font-bold text-center px-8 md:px-0 opacity-90 leading-tight">
             Doredla's<br />Invitation
           </h1>
