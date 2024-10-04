@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CalendarIcon, MapPinIcon, ArrowRightIcon } from "lucide-react";
 
 const WeddingInvitation = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const events = [
     { date: "October 12th, Morning ☀️", name: "Haldi Ceremony 🟨", venue: "Swagruham" },
     { date: "October 13th, Evening 🌆", name: "Wedding Ceremony", venue: "Vivaha Convention Guntur", mapLink: "https://maps.app.goo.gl/QmVYRpkmdF4jQp6M6", videoId: "dQw4w9WgXcQ" },
@@ -16,20 +30,22 @@ const WeddingInvitation = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-pink-100 to-purple-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
-        <div className="relative mb-8 h-96">
-          <img
-            src="/wedding-image.jpg"
-            alt="Aditya and Pushkala"
-            className="w-full h-full object-cover rounded-lg shadow-lg"
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center rounded-lg">
-            <h1 className="text-white text-4xl font-bold text-center px-4">
-              Doredla's Invitation
-            </h1>
-          </div>
+    <div className="min-h-screen bg-gradient-to-b from-pink-100 to-purple-100">
+      <div className="relative h-screen overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url('/wedding-image.jpg')`,
+            transform: `translateY(${scrollY * 0.5}px)`,
+          }}
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center">
+          <h1 className="text-white text-4xl font-bold text-center px-4">
+            Doredla's Invitation
+          </h1>
         </div>
+      </div>
+      <div className="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row gap-8">
           <Card className="bg-white shadow-xl rounded-lg overflow-hidden mb-8 flex-1">
             <CardHeader className="bg-pink-500 text-white text-center py-6">
