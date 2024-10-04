@@ -42,7 +42,8 @@ const WeddingInvitation = () => {
     '/image1.jpg',
     '/image2.jpg',
     '/image3.jpg',
-    '/image4.jpg'
+    '/image4.jpg',
+    '/wedding-image.jpg'
   ];
 
   return (
