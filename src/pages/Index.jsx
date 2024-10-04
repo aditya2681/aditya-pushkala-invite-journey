@@ -76,9 +76,15 @@ const WeddingInvitation = () => {
           <h1 className="text-gray-300 text-6xl md:text-9xl font-bold text-center px-8 md:px-0 opacity-70 leading-tight">
             Doredla's<br />Invitation
           </h1>
-          <p className="text-gray-300 text-xl md:text-2xl mt-4 opacity-70">
+          <div>
+          <div className=" flex text-gray-300 text-xl md:text-2xl mt-4 opacity-70">
+          <CalendarIcon className="mr-2 h-5 w-5 text-gray-300" />
+
             12th Oct | 13th Oct | 14th Oct
-          </p>
+          </div>
+
+          </div>
+
           <button
             onClick={scrollToContent}
             className="absolute bottom-8 animate-bounce"
