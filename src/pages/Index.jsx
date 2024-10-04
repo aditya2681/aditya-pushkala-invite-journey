@@ -13,6 +13,18 @@ const WeddingInvitation = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-pink-100 to-purple-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
+        <div className="relative mb-8">
+          <img
+            src="/wedding-image.jpg"
+            alt="Aditya and Pushkala"
+            className="w-full h-auto rounded-lg shadow-lg"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center rounded-lg">
+            <h1 className="text-white text-4xl font-bold text-center">
+              Doredla's Wedding Invitation
+            </h1>
+          </div>
+        </div>
         <Card className="bg-white shadow-xl rounded-lg overflow-hidden">
           <CardHeader className="bg-pink-500 text-white text-center py-6">
             <CardTitle className="text-3xl font-bold">Wedding Invitation</CardTitle>
