@@ -12,6 +12,7 @@ import Autoplay from "embla-carousel-autoplay";
 
 const WeddingInvitation = () => {
   const [scrollY, setScrollY] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,9 +28,9 @@ const WeddingInvitation = () => {
 
   const events = [
     { date: "October 12th, Morning ☀️", name: "Haldi Ceremony 🟨", venue: "Swagruham" },
-    { date: "October 13th, Evening 🌆", name: "Wedding Ceremony", venue: "Vivaha Convention Guntur", mapLink: "https://maps.app.goo.gl/QmVYRpkmdF4jQp6M6", videoId: "dQw4w9WgXcQ" },
+    { date: "October 13th, Evening 🌆", name: "Wedding Ceremony", venue: "Vivaha Convention Guntur", mapLink: "https://maps.app.goo.gl/QmVYRpkmdF4jQp6M6" },
     { date: "October 14th, Morning ☀️", name: "Satyanarayana Swamy Vratham", venue: "Swagruham" },
-    { date: "October 14th, Evening 🌆", name: "Reception 👫🏻", venue: "Akkineni Convention, Vuyyuru", mapLink: "https://maps.app.goo.gl/NxjeXahE2YbXB3bW9", videoId: "dQw4w9WgXcQ" },
+    { date: "October 14th, Evening 🌆", name: "Reception 👫🏻", venue: "Akkineni Convention, Vuyyuru", mapLink: "https://maps.app.goo.gl/NxjeXahE2YbXB3bW9" },
   ];
 
   const scrollToContent = () => {
@@ -58,6 +59,7 @@ const WeddingInvitation = () => {
             }),
           ]}
           className="w-full h-full"
+          onSlideChange={(index) => setActiveIndex(index)}
         >
           <CarouselContent>
             {carouselImages.map((src, index) => (
@@ -72,6 +74,18 @@ const WeddingInvitation = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
+          <CarouselPrevious className="absolute left-4 top-1/2 transform -translate-y-1/2" />
+          <CarouselNext className="absolute right-4 top-1/2 transform -translate-y-1/2" />
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+            {carouselImages.map((_, index) => (
+              <div
+                key={index}
+                className={`w-3 h-3 rounded-full ${
+                  index === activeIndex ? 'bg-white' : 'bg-white/50'
+                }`}
+              />
+            ))}
+          </div>
         </Carousel>
         <div className="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex flex-col items-center justify-center">
           <h1 className="text-white text-6xl md:text-9xl font-bold text-center px-8 md:px-0 opacity-90 leading-tight">
@@ -121,21 +135,13 @@ const WeddingInvitation = () => {
                         View on Map
                       </a>
                     )}
-                    {event.videoId && (
-                      <a
-                        href={`#${event.videoId}`}
-                        className="flex items-center text-pink-500 hover:text-pink-600 mt-2"
-                      >
-                        Watch Live <ArrowRightIcon className="ml-1 h-4 w-4" />
-                      </a>
-                    )}
                   </div>
                 ))}
               </div>
             </CardContent>
           </Card>
           <div className="flex-1 space-y-8">
-            <div id="dQw4w9WgXcQ" className="aspect-w-16 aspect-h-9">
+            <div className="aspect-w-16 aspect-h-9">
               <h2 className="text-2xl font-semibold text-center mb-4">Wedding Ceremony Live</h2>
               <iframe
                 src="https://www.youtube.com/embed/dQw4w9WgXcQ"
@@ -145,7 +151,7 @@ const WeddingInvitation = () => {
                 className="w-full h-[400px] rounded-lg shadow-lg"
               ></iframe>
             </div>
-            <div id="dQw4w9WgXcQ" className="aspect-w-16 aspect-h-9">
+            <div className="aspect-w-16 aspect-h-9">
               <h2 className="text-2xl font-semibold text-center mb-4">Reception Live</h2>
               <iframe
                 src="https://www.youtube.com/embed/dQw4w9WgXcQ"
