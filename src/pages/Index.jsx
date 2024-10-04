@@ -69,7 +69,7 @@ const WeddingInvitation = () => {
           />
         ))}
         <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center z-20">
-          <h1 className="text-white text-6xl md:text-9xl font-bold text-center px-8 md:px-0 opacity-90 leading-tight">
+          <h1 className="text-gray-300 text-6xl md:text-9xl font-bold text-center px-8 md:px-0 opacity-70 leading-tight">
             Doredla's<br />Invitation
           </h1>
           <button 
