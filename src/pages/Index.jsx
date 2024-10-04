@@ -139,7 +139,8 @@ const WeddingInvitation = () => {
               </div>
             </CardContent>
           </Card>
-          <div className="flex-1 space-y-8">
+          {/* update the youtube link for wedding */}
+          <div className="flex-1 space-y-8 hidden">
             <div className="aspect-w-16 aspect-h-9">
               <h2 className="text-2xl font-semibold text-center mb-4">Wedding Ceremony Live</h2>
               <iframe
