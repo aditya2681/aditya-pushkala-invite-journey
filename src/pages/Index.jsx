@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CalendarIcon, MapPinIcon, ChevronDownIcon } from "lucide-react";
+import { CalendarIcon, MapPinIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 
 const WeddingInvitation = () => {
   const [scrollY, setScrollY] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = ['/image1.jpg', '/image2.jpg', '/image3.jpg', '/image4.jpg'];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,13 +31,21 @@ const WeddingInvitation = () => {
     contentElement.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-pink-100 to-purple-100">
       <div className="relative h-screen overflow-hidden">
         <div 
-          className="w-full h-full bg-cover bg-center"
+          className="w-full h-full bg-cover bg-center transition-opacity duration-500"
           style={{
-            backgroundImage: `url('/wedding-background.jpg')`,
+            backgroundImage: `url(${images[currentImageIndex]})`,
             transform: `translateY(${scrollY * 0.5}px)`,
           }}
         />
@@ -49,6 +59,20 @@ const WeddingInvitation = () => {
             aria-label="Scroll to content"
           >
             <ChevronDownIcon className="h-12 w-12 text-white" />
+          </button>
+          <button
+            onClick={prevImage}
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-full"
+            aria-label="Previous image"
+          >
+            <ChevronLeftIcon className="h-8 w-8 text-black" />
+          </button>
+          <button
+            onClick={nextImage}
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-full"
+            aria-label="Next image"
+          >
+            <ChevronRightIcon className="h-8 w-8 text-black" />
           </button>
         </div>
       </div>
