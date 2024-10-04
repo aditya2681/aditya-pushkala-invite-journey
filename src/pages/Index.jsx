@@ -40,8 +40,8 @@ const WeddingInvitation = () => {
           }}
         />
         <div className="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex flex-col items-center justify-center">
-          <h1 className="text-white text-6xl md:text-8xl font-bold text-center px-4 opacity-90">
-            Doredla's Invitation
+          <h1 className="text-white text-6xl md:text-8xl font-bold text-center px-4 opacity-90 leading-tight">
+            Doredla's<br />Invitation
           </h1>
           <button 
             onClick={scrollToContent} 
