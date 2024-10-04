@@ -1,18 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CalendarIcon, MapPinIcon, ArrowRightIcon, ChevronDownIcon } from "lucide-react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
+import { CalendarIcon, MapPinIcon, ChevronDownIcon } from "lucide-react";
 
 const WeddingInvitation = () => {
   const [scrollY, setScrollY] = useState(0);
-  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,57 +29,17 @@ const WeddingInvitation = () => {
     contentElement.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const carouselImages = [
-    '/image1.jpg',
-    '/image2.jpg',
-    '/image3.jpg',
-    '/image4.jpg',
-    '/wedding-image.jpg'
-  ];
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-pink-100 to-purple-100">
       <div className="relative h-screen overflow-hidden">
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
+        <div 
+          className="w-full h-full bg-cover bg-center"
+          style={{
+            backgroundImage: `url('/wedding-background.jpg')`,
+            transform: `translateY(${scrollY * 0.5}px)`,
           }}
-          plugins={[
-            Autoplay({
-              delay: 2000,
-            }),
-          ]}
-          className="w-full h-full"
-          onSlideChange={(index) => setActiveIndex(index)}
-        >
-          <CarouselContent>
-            {carouselImages.map((src, index) => (
-              <CarouselItem key={index} className="h-full">
-                <div 
-                  className="w-full h-full bg-cover bg-center"
-                  style={{
-                    backgroundImage: `url('${src}')`,
-                    transform: `translateY(${scrollY * 0.5}px)`,
-                  }}
-                />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white" />
-          <CarouselNext className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white" />
-          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-            {carouselImages.map((_, index) => (
-              <div
-                key={index}
-                className={`w-3 h-3 rounded-full ${
-                  index === activeIndex ? 'bg-white' : 'bg-white/50'
-                }`}
-              />
-            ))}
-          </div>
-        </Carousel>
-        <div className="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex flex-col items-center justify-center">
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-40 backdrop-blur-sm flex flex-col items-center justify-center">
           <h1 className="text-white text-6xl md:text-9xl font-bold text-center px-8 md:px-0 opacity-90 leading-tight">
             Doredla's<br />Invitation
           </h1>
