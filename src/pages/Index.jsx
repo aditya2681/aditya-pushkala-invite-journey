@@ -1,22 +1,13 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CalendarIcon, MapPinIcon, ArrowRightIcon, ChevronDownIcon } from "lucide-react";
 
 const WeddingInvitation = () => {
   const [scrollY, setScrollY] = useState(0);
-  const videoRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
-      
-      // Check if the video is in view and play it
-      if (videoRef.current) {
-        const rect = videoRef.current.getBoundingClientRect();
-        if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-          videoRef.current.play();
-        }
-      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -49,7 +40,7 @@ const WeddingInvitation = () => {
           }}
         />
         <div className="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex flex-col items-center justify-center">
-          <h1 className="text-white text-8xl md:text-9xl font-bold text-center px-4 opacity-90 leading-tight">
+          <h1 className="text-white text-6xl md:text-9xl font-bold text-center px-4 md:px-0 opacity-90 leading-tight">
             Doredla's<br />Invitation
           </h1>
           <button 
@@ -62,20 +53,6 @@ const WeddingInvitation = () => {
         </div>
       </div>
       <div id="content" className="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <div className="mb-12">
-          <h2 className="text-3xl font-semibold text-center mb-6">Our Story</h2>
-          <div className="aspect-w-16 aspect-h-9">
-            <iframe
-              ref={videoRef}
-              src="https://www.youtube.com/embed/FLthC7hB9r8"
-              title="Wedding Short"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full rounded-lg shadow-lg"
-            ></iframe>
-          </div>
-        </div>
         <div className="flex flex-col md:flex-row gap-8">
           <Card className="bg-white shadow-xl rounded-lg overflow-hidden mb-8 flex-1">
             <CardHeader className="bg-pink-500 text-white text-center py-6">
@@ -131,7 +108,7 @@ const WeddingInvitation = () => {
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-                className="w-full h-full rounded-lg shadow-lg"
+                className="w-full h-[400px] rounded-lg shadow-lg"
               ></iframe>
             </div>
             <div id="dQw4w9WgXcQ" className="aspect-w-16 aspect-h-9">
@@ -141,7 +118,7 @@ const WeddingInvitation = () => {
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-                className="w-full h-full rounded-lg shadow-lg"
+                className="w-full h-[400px] rounded-lg shadow-lg"
               ></iframe>
             </div>
           </div>
