@@ -27,8 +27,8 @@ const YouTubeShortPlayer = ({ videoId }) => {
     new window.YT.Player(playerRef.current, {
       videoId: videoId,
       playerVars: {
-        autoplay: 1,
-        loop: 1,
+        autoplay: 0,
+        loop: 0,
         playlist: videoId, // This is needed for looping
         controls: 1,
         rel: 0,
@@ -40,7 +40,7 @@ const YouTubeShortPlayer = ({ videoId }) => {
           console.log('Player is ready');
           setIsPlayerReady(true);
           // Attempt to play video
-          attemptAutoplay(event.target);
+          // attemptAutoplay(event.target);
         },
         onStateChange: (event) => {
           console.log('Player state changed:', event.data);
@@ -55,15 +55,15 @@ const YouTubeShortPlayer = ({ videoId }) => {
     });
   };
 
-  const attemptAutoplay = (player) => {
-    player.playVideo().then(() => {
-      console.log('Autoplay started successfully');
-    }).catch((error) => {
-      console.error('Autoplay failed:', error);
-      // If autoplay fails, we can show a play button or message to the user
-      // For now, we'll just log the error
-    });
-  };
+  // const attemptAutoplay = (player) => {
+  //   player.playVideo().then(() => {
+  //     console.log('Autoplay started successfully');
+  //   }).catch((error) => {
+  //     console.error('Autoplay failed:', error);
+  //     // If autoplay fails, we can show a play button or message to the user
+  //     // For now, we'll just log the error
+  //   });
+  // };
 
   return (
     <div className="w-full">

@@ -152,18 +152,22 @@ const WeddingInvitation = () => {
           {/* update the youtube link for wedding */}
           <div className="flex-1 space-y-8 ">
             <div className="aspect-w-16 aspect-h-9">
-              <h2 className="text-2xl font-semibold text-center mb-4">Wedding Invititation</h2>
-              <YouTubeShortPlayer videoId="FLthC7hB9r8" />
-            </div>
-            <div className="aspect-w-16 aspect-h-9 hidden">
-              <h2 className="text-2xl font-semibold text-center mb-4">Wedding Live</h2>
+              <h2 className="text-2xl font-semibold text-center mb-4">Wedding Live 👩‍❤️‍👨</h2>
               <iframe
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-[400px] rounded-lg shadow-lg"
+              src="https://www.youtube.com/embed/VkL4dEgmz_w"
+              title="Aditya Weds Pushkala"
+              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+              className="w-full h-[400px] rounded-lg shadow-lg"
               ></iframe>
+            </div>
+            <div className="aspect-w-16 aspect-h-9">
+              <h2 className="text-2xl font-semibold text-center mb-4">Reception Live 🤵‍♂️❤️👰🏻‍♀️</h2>
+              <iframe
+              src="https://www.youtube.com/embed/ELm3aA5GRis"
+              title="Aditya With Pushkala" frameborder="0"
+               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+               className="w-full h-[400px] rounded-lg shadow-lg"
+               ></iframe>
             </div>
           </div>
         </div>
